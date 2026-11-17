@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#07000a">
+<title>SKENZO | لوحة التحكم</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--void:#07000a;--blood:#ff1e2d;--ember:#7a0b16;--ash:#cfc1c3;--dim:#8d7478;--line:#2b0710}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{min-height:100vh;font-family:'Tajawal',system-ui,sans-serif;color:var(--ash);
+    background:radial-gradient(80% 50% at 50% 108%,rgba(122,11,22,.5),transparent 70%),radial-gradient(120% 70% at 50% 0%,#14000c,var(--void) 70%);
+    padding:34px 20px 50px}
+  main{max-width:440px;margin:0 auto}
+  .logo{width:210px;margin:0 auto 6px;line-height:0;display:block}
+  .logo svg{width:100%;height:auto;filter:drop-shadow(0 0 12px rgba(255,30,45,.5))}
+  h1{text-align:center;font-size:18px;color:var(--dim);font-weight:500;margin-bottom:26px}
+  label{display:block;font-size:15px;color:var(--ash);margin:16px 0 7px}
+  input{width:100%;height:52px;border-radius:12px;border:1.5px solid var(--line);background:rgba(20,0,10,.8);color:#fff;font:inherit;font-size:16px;padding:0 14px;outline:none;transition:border-color .2s}
+  input:focus{border-color:var(--blood)}
+  input[dir=ltr]{text-align:left}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  button{width:100%;height:56px;border-radius:12px;border:1.5px solid var(--blood);background:linear-gradient(180deg,#8a0f1b,#5a0810);color:#fff;font:inherit;font-size:18px;font-weight:700;cursor:pointer;margin-top:22px;transition:transform .12s}
+  button:active{transform:scale(.975)}
+  button:disabled{opacity:.55}
+  button.ghost{background:rgba(20,0,10,.7);border-color:var(--line);color:var(--ash);font-size:16px;height:48px;margin-top:12px}
+  details{margin-bottom:6px;border:1px solid var(--line);border-radius:12px;padding:4px 14px 16px;background:rgba(20,0,10,.5)}
+  summary{cursor:pointer;padding:12px 0;font-size:16px;color:var(--ash)}
+  details small{display:block;color:var(--dim);font-size:13.5px;line-height:1.8;margin-top:10px}
+  #msg{margin-top:18px;min-height:26px;font-size:15px;line-height:1.8;text-align:center}
+  #msg.ok{color:#7be08f}#msg.err{color:#ff7b86}#msg.wait{color:var(--dim)}
+  .site{display:block;text-align:center;margin-top:26px;color:var(--dim);font-size:14px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<defs>
+<path id="l0" fill-rule="evenodd" d="M12,0 L66,0 L66,18 L22,18 L22,38 L54,38 L66,50 L66,88 L54,100 L0,100 L0,82 L44,82 L44,62 L12,62 L0,50 L0,12 Z"/><path id="l1" fill-rule="evenodd" d="M80,0 L102,0 L102,40 L134,0 L160,0 L122,50 L160,100 L132,100 L102,60 L102,100 L80,100 Z"/><path id="l2" fill-rule="evenodd" d="M174,12 L186,0 L238,0 L238,18 L198,18 L198,40 L228,40 L228,58 L198,58 L198,82 L238,82 L238,100 L186,100 L174,88 Z"/><path id="l3" fill-rule="evenodd" d="M252,0 L274,0 L306,52 L306,0 L328,0 L328,100 L306,100 L274,48 L274,100 L252,100 Z"/><path id="l4" fill-rule="evenodd" d="M342,0 L412,0 L412,18 L372,82 L412,82 L412,100 L342,100 L342,82 L382,18 L342,18 Z"/><path id="l5" fill-rule="evenodd" d="M440,0 L486,0 L500,14 L500,86 L486,100 L440,100 L426,86 L426,14 Z M450,20 L476,20 L476,80 L450,80 Z"/>
+<g id="word"><use href="#l0"/><use href="#l1"/><use href="#l2"/><use href="#l3"/><use href="#l4"/><use href="#l5"/></g>
+<clipPath id="cWord"><use href="#l0"/><use href="#l1"/><use href="#l2"/><use href="#l3"/><use href="#l4"/><use href="#l5"/></clipPath>
+<linearGradient id="gBlood" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="100"><stop offset="0" stop-color="#fff0f1"/><stop offset=".24" stop-color="#ff8f98"/><stop offset=".56" stop-color="#ff1e2d"/><stop offset="1" stop-color="#5a0610"/></linearGradient>
+<linearGradient id="gSweep" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<linearGradient id="gFade" gradientUnits="userSpaceOnUse" x1="0" y1="112" x2="0" y2="158"><stop offset="0" stop-color="#fff" stop-opacity=".3"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<mask id="mFade" maskUnits="userSpaceOnUse" x="-20" y="100" width="560" height="70"><rect x="-20" y="100" width="560" height="70" fill="url(#gFade)"/></mask>
+<mask id="mSlit" maskUnits="userSpaceOnUse" x="-20" y="-20" width="560" height="160"><rect x="-20" y="-20" width="560" height="160" fill="#fff"/><polygon points="196,-20 203,-20 262,120 255,120" fill="#000"/></mask>
+</defs></svg>
+
+<main>
+  <div class="logo" aria-label="SKENZO"><svg viewBox="-4 -4 508 108" aria-hidden="true"><use href="#word" fill="url(#gBlood)"/></svg></div>
+  <h1>لوحة التحكم</h1>
+
+  <details id="setup">
+    <summary>إعداد GitHub (مرة واحدة فقط)</summary>
+    <label for="user">اسم مستخدم GitHub</label>
+    <input id="user" dir="ltr" autocomplete="off" autocapitalize="none" spellcheck="false">
+    <label for="repo">اسم المستودع (Repository)</label>
+    <input id="repo" dir="ltr" autocomplete="off" autocapitalize="none" spellcheck="false">
+    <div class="row">
+      <div><label for="branch">الفرع</label><input id="branch" dir="ltr" value="main" autocapitalize="none"></div>
+      <div><label for="token">المفتاح (Token)</label><input id="token" dir="ltr" type="password" autocomplete="off"></div>
+    </div>
+    <small>المفتاح يُحفظ داخل متصفح هذا الجهاز فقط ولا يُرسل لأي مكان إلا إلى GitHub. أنشئه من Settings ثم Developer settings ثم Fine-grained tokens، لهذا المستودع وحده، بصلاحية Contents: Read and write.</small>
+    <button class="ghost" id="saveSetup" type="button">حفظ الإعداد</button>
+  </details>
+
+  <label for="mf">رابط ميديا فاير</label>
+  <input id="mf" dir="ltr" inputmode="url" placeholder="https://www.mediafire.com/file/..." autocapitalize="none" spellcheck="false">
+  <label for="tg">رابط تلغرام للتحميل</label>
+  <input id="tg" dir="ltr" inputmode="url" placeholder="https://t.me/..." autocapitalize="none" spellcheck="false">
+  <div class="row">
+    <div><label for="ver">الإصدار</label><input id="ver" dir="ltr" placeholder="2.2"></div>
+    <div><label for="size">الحجم</label><input id="size" dir="ltr" placeholder="200 MB"></div>
+  </div>
+
+  <button id="save" type="button">حفظ ونشر</button>
+  <button class="ghost" id="load" type="button">جلب القيم الحالية من الموقع</button>
+  <div id="msg" role="status" aria-live="polite"></div>
+  <a class="site" href="index.html">فتح الصفحة الرئيسية</a>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+const LS={get(k){try{return localStorage.getItem(k)||''}catch(e){return ''}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+['user','repo','branch','token'].forEach(k=>{const v=LS.get('gh_'+k); if(v) $(k).value=v;});
+if(!LS.get('gh_user')||!LS.get('gh_repo')||!LS.get('gh_token')) $('setup').open=true;
+
+function say(t,c){const m=$('msg');m.textContent=t;m.className=c||'';}
+function busy(b){['save','load'].forEach(i=>$(i).disabled=b);}
+$('saveSetup').onclick=()=>{
+  ['user','repo','branch','token'].forEach(k=>LS.set('gh_'+k,$(k).value.trim()));
+  $('setup').open=false; say('تم حفظ إعداد GitHub على هذا الجهاز.','ok');
+};
+function cfg(){
+  const u=$('user').value.trim(),r=$('repo').value.trim(),b=$('branch').value.trim()||'main',t=$('token').value.trim();
+  if(!u||!r||!t){ $('setup').open=true; say('أكمل إعداد GitHub أولاً.','err'); return null; }
+  return {url:`https://api.github.com/repos/${u}/${r}/contents/config.json`,b,
+    h:{'Authorization':'Bearer '+t,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'}};
+}
+const enc=s=>btoa(unescape(encodeURIComponent(s)));
+const dec=s=>decodeURIComponent(escape(atob(s.replace(/\s/g,''))));
+function why(status){
+  if(status===401) return 'المفتاح غير صحيح أو منتهي.';
+  if(status===403) return 'المفتاح لا يملك صلاحية الكتابة على هذا المستودع.';
+  if(status===404) return 'لم أجد المستودع. تحقق من اسم المستخدم واسم المستودع والفرع.';
+  if(status===409||status===422) return 'حدث تعارض. أعد المحاولة.';
+  return 'تعذّر الاتصال بـ GitHub ('+status+').';
+}
+async function getFile(c){
+  const r=await fetch(c.url+'?ref='+encodeURIComponent(c.b)+'&t='+Date.now(),{headers:c.h,cache:'no-store'});
+  if(r.status===404) return {missing:true};
+  if(!r.ok) throw r.status;
+  const j=await r.json(); return {sha:j.sha,data:JSON.parse(dec(j.content))};
+}
+$('load').onclick=async()=>{
+  const c=cfg(); if(!c) return; busy(true); say('جارٍ الجلب...','wait');
+  try{
+    const f=await getFile(c);
+    if(f.missing){ say('لا يوجد ملف إعدادات بعد، سيُنشأ عند أول حفظ.','wait'); }
+    else{ $('mf').value=f.data.mediafire||''; $('tg').value=f.data.telegram||''; $('ver').value=f.data.version||''; $('size').value=f.data.size||''; say('تم جلب القيم الحالية.','ok'); }
+  }catch(e){ say(typeof e==='number'?why(e):'تعذّر الاتصال بالإنترنت.','err'); }
+  busy(false);
+};
+const good=u=>!u||/^https?:\/\//i.test(u);
+$('save').onclick=async()=>{
+  const c=cfg(); if(!c) return;
+  const data={mediafire:$('mf').value.trim(),telegram:$('tg').value.trim(),version:$('ver').value.trim(),size:$('size').value.trim()};
+  if(!good(data.mediafire)||!good(data.telegram)){ say('الروابط يجب أن تبدأ بـ https://','err'); return; }
+  busy(true); say('جارٍ النشر...','wait');
+  try{
+    const f=await getFile(c);
+    const body={message:'update config',content:enc(JSON.stringify(data,null,2)+'\n'),branch:c.b};
+    if(f.sha) body.sha=f.sha;
+    const r=await fetch(c.url,{method:'PUT',headers:Object.assign({'Content-Type':'application/json'},c.h),body:JSON.stringify(body)});
+    if(!r.ok) throw r.status;
+    say('تم الحفظ ✓ ستظهر التغييرات على الموقع خلال دقيقة تقريباً.','ok');
+  }catch(e){ say(typeof e==='number'?why(e):'تعذّر الاتصال بالإنترنت.','err'); }
+  busy(false);
+};
+</script>
+</body>
+</html>
